@@ -38,15 +38,7 @@ namespace modul8_1302213039
 
         private void SetDefault()
         {
-            string lang = "id";
-            Transfer transfer = new Transfer(1000000, 6500, 19500);
-            List<string> methods = new List<string>();
-            methods.Add("RTO (real-time)");
-            methods.Add("SKN");
-            methods.Add("RTGS");
-            methods.Add("BI FAST");
-            Confirmation confirmation = new Confirmation("yes", "ya");
-            config = new BankTransfer(lang, transfer, methods, confirmation);
+  
         }
         private void WriteNewConfigFile()
         {

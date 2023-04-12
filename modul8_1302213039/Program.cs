@@ -1,14 +1,20 @@
 ﻿using modul8_1302213039;
+using System;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        BankTransferConfig bankTransferRegy = new BankTransferConfig();
-        string language = bankTransferRegy.config.lang;
+        BankTransferConfig tfbank = new BankTransferConfig();
+        Console.Write("Pilih bahasa (id/en): ");
+        string bahasa = Console.ReadLine();
+        string language = bahasa;
+        
+        
 
         if (language == "id" || language == "en")
         {
+            //D.i
             if (language == "en")
             {
                 Console.Write("Please insert the amount of money to transfer: ");
@@ -21,19 +27,19 @@ internal class Program
 
             int jumlah = Convert.ToInt32(Console.ReadLine());
             int biaya;
-            if (jumlah <= bankTransferRegy.config.transfer.threshold)
+            if (jumlah <= tfbank.config.transfer.threshold)
             {
-                biaya = bankTransferRegy.config.transfer.low_fee;
+                biaya = tfbank.config.transfer.low_fee;
             }
             else
             {
-                biaya = bankTransferRegy.config.transfer.high_fee;
+                biaya = tfbank.config.transfer.high_fee;
             }
 
-
+            //D.ii.2
             int total = jumlah + biaya;
 
-
+            //D.ii.3
             if (language == "en")
             {
                 Console.WriteLine("Transfer fee = " + biaya);
@@ -45,7 +51,7 @@ internal class Program
                 Console.WriteLine("Total biaya = " + total);
             }
 
-
+            //D.iii
             if (language == "en")
             {
                 Console.WriteLine("Select tranfer method:");
@@ -55,31 +61,31 @@ internal class Program
                 Console.WriteLine("Pilih metode transfer:");
             }
 
-
-            for (int i = 0; i < bankTransferRegy.config.methods.Count; i++)
+            //D.iv
+            for (int i = 0; i < tfbank.config.methods.Count; i++)
             {
-                Console.WriteLine((i + 1) + ". " + bankTransferRegy.config.methods[i]);
+                Console.WriteLine((i + 1) + ". " + tfbank.config.methods[i]);
             }
             Console.WriteLine("Ketik: ");
             string metode = Console.ReadLine();
 
-
+            //D.v
             if (language == "en")
             {
-                Console.WriteLine("Please type " + bankTransferRegy.config.confirmation.en +
+                Console.WriteLine("Please type " + tfbank.config.confirmation.en +
                     " to confirm the transaction: ");
             }
             else if (language == "id")
             {
-                Console.WriteLine("Ketik " + bankTransferRegy.config.confirmation.id +
+                Console.WriteLine("Ketik " + tfbank.config.confirmation.id +
                     " untuk mengkonfirmasi transaksi: ");
             }
             string konfirmasi = Console.ReadLine();
 
-
+            //D.vi & D.vii
             if (language == "en")
             {
-                if (konfirmasi == bankTransferRegy.config.confirmation.en)
+                if (konfirmasi == tfbank.config.confirmation.en)
                 {
                     Console.WriteLine("The transfer is completed");
                 }
@@ -90,7 +96,7 @@ internal class Program
             }
             else if (language == "id")
             {
-                if (konfirmasi == bankTransferRegy.config.confirmation.id)
+                if (konfirmasi == tfbank.config.confirmation.id)
                 {
                     Console.WriteLine("Proses transfer berhasil");
                 }

@@ -14,7 +14,6 @@ internal class Program
 
         if (language == "id" || language == "en")
         {
-            //D.i
             if (language == "en")
             {
                 Console.Write("Please insert the amount of money to transfer: ");
@@ -36,10 +35,8 @@ internal class Program
                 biaya = tfbank.config.transfer.high_fee;
             }
 
-            //D.ii.2
             int total = jumlah + biaya;
 
-            //D.ii.3
             if (language == "en")
             {
                 Console.WriteLine("Transfer fee = " + biaya);
@@ -51,7 +48,6 @@ internal class Program
                 Console.WriteLine("Total biaya = " + total);
             }
 
-            //D.iii
             if (language == "en")
             {
                 Console.WriteLine("Select tranfer method:");
@@ -61,7 +57,6 @@ internal class Program
                 Console.WriteLine("Pilih metode transfer:");
             }
 
-            //D.iv
             for (int i = 0; i < tfbank.config.methods.Count; i++)
             {
                 Console.WriteLine((i + 1) + ". " + tfbank.config.methods[i]);
@@ -69,7 +64,6 @@ internal class Program
             Console.WriteLine("Ketik: ");
             string metode = Console.ReadLine();
 
-            //D.v
             if (language == "en")
             {
                 Console.WriteLine("Please type " + tfbank.config.confirmation.en +
@@ -82,7 +76,6 @@ internal class Program
             }
             string konfirmasi = Console.ReadLine();
 
-            //D.vi & D.vii
             if (language == "en")
             {
                 if (konfirmasi == tfbank.config.confirmation.en)
